@@ -1,0 +1,199 @@
+.page {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: #000;
+  color: #fff;
+}
+
+.page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 85% 88%,
+      rgba(0, 21, 255, 0.2) 0%,
+      rgba(0, 7, 83, 0.16) 22%,
+      rgba(15, 1, 59, 0.1) 38%,
+      rgba(0, 0, 0, 0) 65%
+    );
+}
+
+.bgGlow {
+  position: absolute;
+  right: -420px;
+  bottom: -520px;
+  width: 1700px;
+  height: 1700px;
+  border-radius: 50%;
+  pointer-events: none;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(83, 163, 255, 0.12) 0%,
+    rgba(0, 21, 255, 0.2) 15%,
+    rgba(0, 7, 83, 0.18) 32%,
+    rgba(15, 1, 59, 0.1) 50%,
+    rgba(0, 0, 0, 0) 74%
+  );
+
+  filter: blur(70px);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  width: 980px;
+  margin: 0 auto;
+  padding-top: 42px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.title {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.secondaryButton {
+  height: 46px;
+  padding: 0 22px;
+  border-radius: 18px;
+  border: 1px solid rgba(83, 163, 255, 0.4);
+  background: rgba(0, 0, 0, 0.7);
+
+  display: flex;
+  align-items: center;
+
+  text-decoration: none;
+  color: #fff;
+}
+
+.card {
+  position: relative;
+  border-radius: 36px;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 36px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(83, 163, 255, 0.9) 0%,
+    rgba(0, 21, 255, 0.7) 35%,
+    rgba(0, 7, 83, 0.8) 100%
+  );
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.cardInner {
+  position: relative;
+  z-index: 2;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(10, 10, 10, 0.96) 0%,
+      rgba(0, 7, 83, 0.22) 100%
+    );
+
+  backdrop-filter: blur(8px);
+
+  border-radius: 36px;
+  padding: 34px;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+}
+
+.full {
+  grid-column: span 2;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  color: rgba(255,255,255,.55);
+  font-size: 13px;
+}
+
+.infoGrid p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.link {
+  color: #53a3ff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.actions {
+  margin-top: 36px;
+  display: flex;
+  gap: 18px;
+}
+
+.button,
+.dangerButton {
+  height: 52px;
+  border-radius: 18px;
+  border: none;
+  padding: 0 28px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+}
+
+.button {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(77,205,104,.8),
+      rgba(20,120,40,.9)
+    );
+}
+
+.dangerButton {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(179,42,42,.8),
+      rgba(90,0,0,.9)
+    );
+}
+
+.textarea {
+  width: 100%;
+  min-height: 70px;
+  margin-top: 28px;
+  border-radius: 18px;
+  border: 1px solid rgba(83, 163, 255, 0.35);
+  background: rgba(0, 0, 0, 0.72);
+  color: #fff;
+  outline: none;
+  padding: 12px 14px;
+  resize: vertical;
+}

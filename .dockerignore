@@ -1,0 +1,9 @@
+.git
+**/node_modules
+**/.next
+**/coverage
+**/__pycache__
+**/*.log
+.env
+backend/.env*
+frontend/.env*

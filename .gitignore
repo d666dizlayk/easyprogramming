@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Next.js / build output
+.next/
+out/
+build/
+dist/
+coverage/
+*.tsbuildinfo
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+backend/backend.env
+
+# Runtime uploads (persisted by Docker volume)
+backend/uploads/
+
+# Logs / OS / IDE
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Local Git metadata (repo is initialized at the root)
+**/.git/
