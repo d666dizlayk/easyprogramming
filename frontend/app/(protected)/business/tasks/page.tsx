@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { apiRequest } from "@/src/lib/api";
@@ -9,7 +9,7 @@ import { TASK_LANGUAGES } from "@/src/lib/task-options";
 const statusLabel: Record<string, string> = { pending: "На модерации", approved: "Опубликована", rejected: "Отклонена" };
 const emptyForm = { title: "", description: "", difficulty: "easy", language: "", goal: "", conditions: "" };
 
-export default function BusinessTasksPage() {
+function BusinessTasksContent() {
   const [tasks, setTasks] = useState<any[]>([]);
   const [form, setForm] = useState(emptyForm);
   const [editingId, setEditingId] = useState<number | null>(null);
@@ -108,4 +108,12 @@ export default function BusinessTasksPage() {
       <div className="ep-business-list">{submissions.length===0?<div className="ep-empty">Пока нет отправленных решений.</div>:submissions.map(s=><div className="ep-business-item" key={s.id}><div><strong>{s.user?.username || "Разработчик"}</strong><span>{new Date(s.createdAt).toLocaleString("ru-RU")} · {s.status}</span></div>{s.moderationMessage && <span className="ep-business-note">Модератор: {s.moderationMessage}</span>}{s.githubUrl && <a className="ep-mini-action" href={s.githubUrl} target="_blank" rel="noreferrer">GitHub →</a>}</div>)}</div>
     </section>}
   </div></main>;
+}
+
+export default function BusinessTasksPage() {
+  return (
+    <Suspense fallback={<main className="ep-dashboard"><div className="ep-dash-wrap">Загрузка…</div></main>}>
+      <BusinessTasksContent />
+    </Suspense>
+  );
 }
