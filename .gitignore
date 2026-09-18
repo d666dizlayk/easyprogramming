@@ -28,3 +28,6 @@ Thumbs.db
 
 # Local Git metadata (repo is initialized at the root)
 **/.git/
+
+# Local database backups
+backups/
